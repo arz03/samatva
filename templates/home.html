@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amita:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body{
+    background-color: rgb(15, 2, 72);
+    margin: 0%;
+    padding: 0%;
+}
+header{
+    background-color: #eed2f9;
+    display: flex;
+    height: 100px;
+    padding-top: 20px; 
+    margin: 0px;  
+
+}
+header .title{
+    color: #130D4C;
+    font-family: "Amita", serif;
+    font-size: 30px;
+    font-style: bold;
+    font-weight: 700;
+    line-height: normal;
+    text-align: center;
+    display: flex;
+    flex-wrap: nowrap; 
+    justify-content: center; 
+    gap: 5px;
+
+}
+header #icon{
+    color: #f50000;
+    text-align: center;
+}
+header .Home{
+    display: flex;
+    flex-wrap: nowrap; 
+    justify-content: center;
+    gap: 10px;
+    margin-left: 0px;
+}
+header .Home a {
+    color: #000;
+    text-decoration: none;
+    text-align: left;
+
+}
+#translate{
+    color: #130D4C;
+    text-align: center;
+    background-color: #ebe5ff;
+    margin: 0px;
+    height: 30px;
+    padding: 10px 0px;
+}
+
+.slider {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+}
+
+.slides {
+    display: flex;
+    width: 400%;
+    height: 100%;
+}
+
+.slides .slide {
+    width: 100%;
+    height: 100%;
+}
+
+.slides .slide img {
+    width: fit-content;
+    height: 100%;
+    align-items: center;
+    text-align: center;
+}
+
+.navigation-auto {
+    position: absolute;
+    width: 100%;
+    bottom: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.navigation-auto div {
+    border: 2px solid #ffffff;
+    padding: 5px;
+    margin: 0 5px;
+    border-radius: 50%;
+    background: #f5f5f5;
+    cursor: pointer;
+}
+
+.video-section {
+    width: 100%;
+    background-color: rgb(227, 227, 227);
+    text-align: center;
+    padding: 20px 0;
+}
+
+.video-section h2 {
+    font-family: "Arial", sans-serif;
+    font-size: 24px;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.videos {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.video {
+    width: 200px;
+}
+
+video {
+    width: 100%;
+    height: auto;
+}
+
+.video p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+.fun-facts {
+    width: 100%;
+    background-color: #ffd6d6;
+    text-align: center;
+    padding: 50px 0;
+}
+
+.fun-facts h2 {
+    font-family: "Arial", sans-serif;
+    font-size: 32px;
+    color: black;
+    margin-bottom: 10px;
+}
+
+.fun-facts p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Games Section */
+.games {
+    width: 100%;
+    background-color: #E6E6FA;
+    text-align: center;
+    padding: 50px 0;
+}
+
+.games h2 {
+    font-family: "Arial", sans-serif;
+    font-size: 32px;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.game-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.game {
+    background-color: #c6e5f5;
+    padding: 20px;
+    width: 200px;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for movement and shadow */
+    position: relative; /* Needed to move the text */
+}
+
+.game h3, .game p {
+    transition: transform 0.3s ease; /* Smooth transition for text movement */
+}
+
+.game:hover {
+    transform: translateY(-10px); /* Moves the tile up when hovered */
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2); /* Adds shadow for depth */
+}
+
+.game:hover h3, .game:hover p {
+    transform: translateY(-5px); /* Moves the text inside up slightly */
+}
+
+.game h3 {
+    font-size: 18px;
+    color: black;
+    margin-bottom: 10px;
+}
+
+.game p {
+    font-size: 14px;
+    color: #555;
+}
+
+
+/* About Section */
+.about {
+    width: 100%;
+    background-color: #eed2f9;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.about h2 {
+    font-family: "Arial", sans-serif;
+    font-size: 32px;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.about p {
+    font-family: "Arial", sans-serif;
+    font-size: 16px;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Footer Section */
+footer {
+    background-color: #120962;
+    padding: 20px 0;
+    text-align: center;
+    color: white;
+}
+
+footer .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+footer p {
+    font-size: 14px;
+    margin: 0;
+}
+
+footer .social-icons a {
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+footer .social-icons img {
+    width: 24px;
+    height: 24px;
+    filter: invert(1); /* Makes icons white on dark background */
+    transition: transform 0.3s ease;
+}
+
+footer .social-icons a:hover img {
+    transform: scale(1.1); /* Enlarge icon on hover */
+}
+
+/* Responsive */
+</style>
+</head>
+<body>
+    <div class="section1">
+        <header>
+            <div style="flex-basis: 40%; color: black;", class="Home">
+                <a href="">Home</a>
+                <a href="">Animations</a>
+                <a href="">Games</a>
+                <a href="">Chatbot</a>
+            </div>
+            <div style="flex-basis: 20%;", class="title">संस्थाएँ और संविधान</div>
+            <div style="flex-basis: 40%;", id="icon"><img src="" alt="fb"></div>
+        </header>
+
+        <div id="translate">
+            <p>Translate to hindi</p>
+        </div>
+    </div>
+
+    <div class="slider">
+        <div class="slides">
+            <input type="radio" name="radio-btn" id="radio1">
+            <input type="radio" name="radio-btn" id="radio2">
+            <input type="radio" name="radio-btn" id="radio3">
+            <input type="radio" name="radio-btn" id="radio4">
+    
+            <div class="slide first">
+                <img src="/static/web-images/image1.jpg" alt="law">
+            </div>
+            <div class="slide">
+                <img src="/static/web-images/image2.jpg" alt="constitution">
+            </div>
+            <div class="slide">
+                <img src="/static/web-images/image3.jpg" alt="const">
+            </div>
+            <div class="slide">
+                <img src="/static/web-images/image4.jpg" alt="law2">
+            </div>
+    
+            <div class="navigation-auto">
+                <div class="auto-btn1"></div>
+                <div class="auto-btn2"></div>
+                <div class="auto-btn3"></div>
+                <div class="auto-btn4"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let slides = document.querySelectorAll('.slide');
+            slides.forEach((slide, index) => {
+                slide.style.display = 'none';
+            });
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+            slides[slideIndex - 1].style.display = 'block';
+            setTimeout(showSlides, 3000); // Change slide every 3 seconds
+        }
+    </script>
+
+    <section class="video-section">
+        <h2>Video Channel Name</h2>
+        <div class="videos">
+            <div class="video">
+                <video controls>
+                    <source src="video1.mp4" type="video/mp4">
+                </video>
+                <p>Video Title 1</p>
+            </div>
+            <div class="video">
+                <video controls>
+                    <source src="video2.mp4" type="video/mp4">
+                </video>
+                <p>Video Title 2</p>
+            </div>
+            <div class="video">
+                <video controls>
+                    <source src="video3.mp4" type="video/mp4">
+                </video>
+                <p>Video Title 3</p>
+            </div>
+            <div class="video">
+                <video controls>
+                    <source src="video4.mp4" type="video/mp4">
+                </video>
+                <p>Video Title 4</p>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="fun-facts">
+        <h2>Fun Facts</h2>
+        <p>Welcome visitors to your site with a short, engaging introduction.</p>
+    </section>
+
+<!-- Games Section -->
+    <section class="games">
+        <h2>Games</h2>
+        <div class="game-grid">
+            <div class="game-box">
+                <div class="game">
+                    <h3>Business</h3>
+                    <p>Explore the world of entrepreneurship and management in exciting games!</p>
+                </div>
+            </div>
+            <div class="game-box">
+                <div class="game">
+                    <h3>Sports</h3>
+                    <p>Test your skills and knowledge in various sports games!</p>
+                </div>
+            </div>
+            <div class="game-box">
+                <div class="game">
+                    <h3><a href="/codenames">Codenames</a></h3>
+                    <p>Codenames is a game where players work in teams to guess words based on clues provided by their team leader.</p>
+                    <a href="/codenames">>>Play<<</a>
+                </div>
+            </div>
+            <div class="game-box">
+                <div class="game">
+                    <h3><a href="/flashy">Flashy</a></h3>
+                    <p>Flashy is a quiz game where you can test your knowledge about the constitution of india.</p>
+                    <a href="/flashy">>>Play<<</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- About Section -->
+    <section class="about">
+        <div class="about-content">
+            <h2>About Skooled</h2>
+            <p>
+                We're passionate about learning and sharing knowledge with the world. 
+                Our goal is to create a space where everyone can learn, explore, and engage in meaningful ways.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <p>© 2024 Skooled. All Rights Reserved.</p>
+            <div class="social-icons">
+                <a href="#"><img src="path/to/facebook-icon.png" alt="Facebook"></a>
+                <a href="#"><img src="path/to/twitter-icon.png" alt="Twitter"></a>
+                <a href="#"><img src="path/to/linkedin-icon.png" alt="LinkedIn"></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

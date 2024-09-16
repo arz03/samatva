@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeNames</title>
+    <link rel="stylesheet" href="{% static 'index.css'%}">
+    <style>
+        .header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-size: 40px;
+            font-weight: bold;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .header img {
+            position: absolute;
+            left: 20px;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+        }
+        .content{
+            margin-top: 100px;
+            padding: 20px;
+        }
+        .rulebook-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .rulebook-container h2 {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <!-- Add url for homepage here -->
+        <a href="/home" style="display: flex; align-items: center;"><img src="/static/Images/homeicon.png" alt="Home" style="width: 40px; height: 40px;"></a>
+        CodeNames
+    </div>
+    <div class="main-container">
+        <div class="content">
+            <p>An unofficial version of Codenames inspired by Indian Constitution</p>
+
+            <form method="POST">
+                {% csrf_token %}
+                <button class="blended-color" type="submit">Start a New Game</button>
+            </form>
+
+            <!-- Add the PDF embed here -->
+            <div class="rulebook-container">
+                <h2>Rulebook</h2>
+                <iframe src="{% static 'rules.pdf' %}" width="100%" height="500px"></iframe>
+            </div>
+        </div>
+        <div id="footer">
+            <p>Created by team SAMATVA</a></p>
+        </div>
+    </div>
+</body>
+</html>

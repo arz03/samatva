@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashy Quiz</title>
+    <style>
+        body {
+            background-color: #B1DDC6;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* Modified */
+            align-items: center;
+            height: 100vh;
+        }
+        .header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-size: 40px;
+            font-weight: bold;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .header img {
+            position: absolute;
+            left: 20px;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+        }
+        .card-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Modified */
+            flex-grow: 0;
+            width: 100%;
+            height: auto; /* Changed from 100vh */
+            margin-bottom: 20px; /* Added margin-bottom */
+        }
+        .card {
+            background-color: #FFF;
+            padding: 30px;
+            border-radius: 20px;
+            width: 60%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+        }
+        .options-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            justify-items: center;
+        }
+        .option button {
+            background-image: url('/static/flashy-images/Button.png');
+            background-size: cover;
+            background-position: center;
+            width: 300px;
+            height: 100px;
+            border: none;
+            border-radius: 0px;
+            color: black;
+            font-size: 20px;
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .option button:hover {
+            transform: scale(1.05);
+        }
+        .score {
+            margin-top: 7%;
+            margin-bottom: 1%;
+            font-size: 24px;
+            color: #333;
+            text-align: center;
+        }
+        .name-input {
+            margin-top: 0;
+            text-align: center;
+        }
+        .name-input input {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .name-input button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .name-input button:hover {
+            background-color: #45a049;
+        }
+        .leaderboard {
+            width: 60%;
+            margin-top: 30px;
+            background-color: #FFF;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .leaderboard h2 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .leaderboard table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .leaderboard th, .leaderboard td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .leaderboard td:first-child {
+            width: 10%;
+            
+        }
+        .flash-message {
+            position: fixed;
+            top: 90px;
+            right: 20px;
+            background-color: #f44336;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            z-index: 1000;
+            max-width: 300px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <!-- Add url for homepage here -->
+        <a href="/home" style="display: flex; align-items: center;"><img src="/static/flashy-images/homeicon.png" alt="Home" style="width: 40px; height: 40px;"></a>
+        Flashy
+    </div>
+    {% if messages %}
+        <div class="flash-message">
+            {{ messages }}
+        </div>
+    {% endif %}
+
+    <div class="score">Score: {{ score }}</div>
+
+    <div class="card-container">
+        <div class="card">
+            <h1>{{ question }}</h1>
+            <form method="POST" action="/flashy/submit">
+                <div class="options-container">
+                    {% for option in options %}
+                    <div class="option">
+                        <button type="submit" name="choice" value="{{ option }}">{{ option }}</button>
+                    </div>
+                    {% endfor %}
+                </div>
+                <input type="hidden" name="player_name" value="{{ player_name }}">
+            </form>
+        </div>
+    </div>
+    <div class="name-input">
+        <form method="POST" action="/flashy/set_name">
+            <input type="text" name="player_name" placeholder="Enter name for leaderboard" value="{{ player_name }}">
+            <button type="submit">Set Name</button>
+        </form>
+    </div>
+    <div class="leaderboard">
+        <h2>Leaderboard</h2>
+        <p>Top 15 players</p>
+        <table>
+            <tr>
+                <th>Rank</th>
+                <th>Name</th>
+                <th>Score</th>
+            </tr>
+            {% for rank, (name, score) in enumerate(leaderboard.items(), start=1) %}
+            <tr>
+                <td>{{ rank }}</td>
+                <td>{{ name }}</td>
+                <td>{{ score }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
