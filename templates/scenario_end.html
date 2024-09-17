@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Over</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="end-screen">
+    <div class="end-content">
+        <h1>{{ result }}</h1>
+        <a href="{{ url_for('index') }}">Play Again</a>
+    </div>
+</body>
+</html>
