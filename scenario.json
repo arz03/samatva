@@ -1,0 +1,278 @@
+{
+    "scenarios": {
+      "stage1": {
+        "story": "The opposition party submits a formal request to impeach the President, claiming a violation of Article 74. Your committee must decide how to handle the initial complaint.",
+        "image_url": "stage1_image.jpg",
+        "options": {
+          "option1": {
+            "text": "Investigate the allegations in detail.",
+            "next": "stage2_investigate",
+            "point": 10
+          },
+          "option2": {
+            "text": "Dismiss the allegations as politically motivated.",
+            "next": "stage2_dismiss",
+            "point": -10
+          }
+        }
+      },
+      "stage2_investigate": {
+        "story": "Your committee begins collecting evidence, reviewing documents and testimonies.",
+        "image_url": "stage2_investigate_image.jpg",
+        "options": {
+          "option1": {
+            "text": "Continue the investigation.",
+            "next": "stage3_conflict",
+            "point": 5
+          },
+          "option2": {
+            "text": "Stop the investigation and prepare a report.",
+            "next": "stage3_media",
+            "point": -5
+          }
+        }
+      },
+      "stage2_dismiss": {
+        "story": "The decision to dismiss the allegations leads to a public outcry.",
+        "image_url": "stage2_dismiss_image.jpg",
+        "options": {
+          "option1": {
+            "text": "Reopen the investigation.",
+            "next": "stage2_investigate",
+            "point": 0
+          },
+          "option2": {
+            "text": "Defend the decision.",
+            "next": "stage3_public_backlash",
+            "point": -5
+          }
+        }
+      },
+      "stage3_media": {
+        "story": "The decision to dismiss the allegations leads to a public outcry.",
+        "image_url": "stage3_media_image.jpg",
+        "options": {
+          "option1": {
+            "text": "Reopen the investigation.",
+            "next": "stage2_investigate",
+            "point": 0
+          },
+          "option2": {
+            "text": "Defend the decision.",
+            "next": "stage3_public_backlash",
+            "point": -5
+          }
+        }
+      },
+      "stage3_conflict": {
+        "story": "New evidence indicates a violation of Article 74. However, the ruling party blocks the investigation.",
+        "image_url": "stage3_conflict_image.jpg",
+        "options": {
+          "option1": {
+            "text": "Present evidence to the Supreme Court.",
+            "next": "stage4_supreme_court",
+            "point": 10
+          },
+          "option2": {
+            "text": "Push investigation in Parliament.",
+            "next": "stage4_parliament",
+            "point": 5
+          }
+        }
+      },
+      "stage4_supreme_court": {
+        "story": "The Supreme Court holds a hearing regarding the President's actions.",
+        "image_url": "stage4_supreme_court_image.jpg",
+        "options": {
+          "option1": {
+            "text": "Argue national security cannot justify bypassing Parliament.",
+            "next": "stage5_supreme_court_decision",
+            "point": 10
+          },
+          "option2": {
+            "text": "Suggest a compromise.",
+            "next": "stage5_compromise",
+            "point": 5
+          }
+        }
+      },
+      "stage4_parliament": {
+        "story": "The ruling party in Parliament tries to obstruct the proceedings.",
+        "image_url": "stage4_parliament_image.jpg",
+        "options": {
+          "option1": {
+            "text": "Bring the matter to public attention.",
+            "next": "stage5_public_support",
+            "point": 5
+          },
+          "option2": {
+            "text": "Negotiate with the ruling party.",
+            "next": "stage5_negotiation",
+            "point": 0
+          }
+        }
+      },
+      "stage5_public_support": {
+        "story": "Public support grows for the investigation.",
+        "image_url": "stage5_public_support_image.jpg",
+        "options": {
+          "option1": {
+            "text": "Press for immediate hearings in Parliament.",
+            "next": "stage6_hearings",
+            "point": 10
+          },
+          "option2": {
+            "text": "Take more time to gather evidence.",
+            "next": "stage6_delay",
+            "point": -5
+          }
+        }
+      },
+      "stage5_negotiation": {
+        "story": "You manage to negotiate a hearing in Parliament.",
+        "image_url": "stage5_negotiation_image.jpg",
+        "options": {
+          "option1": {
+            "text": "Proceed with the hearing.",
+            "next": "stage6_hearings",
+            "point": 5
+          },
+          "option2": {
+            "text": "Delay to gather more support.",
+            "next": "stage6_delay",
+            "point": -5
+          }
+        }
+      },
+      "stage6_hearings": {
+        "story": "Parliament holds hearings based on the evidence.",
+        "image_url": "stage6_hearings_image.jpg",
+        "options": {
+          "option1": {
+            "text": "Continue the proceedings.",
+            "next": "stage7_vote",
+            "point": 10
+          },
+          "option2": {
+            "text": "Try to reach a settlement.",
+            "next": "stage7_settlement",
+            "point": 5
+          }
+        }
+      },
+      "stage6_delay": {
+        "story": "The delay weakens your case as evidence is questioned.",
+        "image_url": "stage6_delay_image.jpg",
+        "options": {
+          "option1": {
+            "text": "Push for a hearing despite weakening evidence.",
+            "next": "stage7_vote",
+            "point": 5
+          },
+          "option2": {
+            "text": "Attempt to find new evidence.",
+            "next": "stage7_new_evidence",
+            "point": -5
+          }
+        }
+      },
+      "stage5_supreme_court_decision": {
+        "story": "The Supreme Court rules that the President violated the Constitution.",
+        "image_url": "stage5_supreme_court_decision_image.jpg",
+        "options": {
+          "option1": {
+            "text": "Proceed with impeachment.",
+            "next": "stage6_impeachment",
+            "point": 10
+          },
+          "option2": {
+            "text": "Recommend censure.",
+            "next": "stage6_censure",
+            "point": 5
+          }
+        }
+      },
+      "stage6_impeachment": {
+        "story": "Impeachment proceedings begin in Parliament.",
+        "image_url": "stage6_impeachment_image.jpg",
+        "options": {
+          "option1": {
+            "text": "Push for an immediate vote.",
+            "next": "stage7_vote",
+            "point": 10
+          },
+          "option2": {
+            "text": "Delay the vote and seek support.",
+            "next": "stage7_negotiations",
+            "point": 5
+          }
+        }
+      },
+      "stage6_censure": {
+        "story": "A vote for censure is held instead of impeachment.",
+        "image_url": "stage6_censure_image.jpg",
+        "options": {
+          "option1": {
+            "text": "Proceed with the censure.",
+            "next": "stage7_censure_passed",
+            "point": 5
+          },
+          "option2": {
+            "text": "Push for impeachment regardless.",
+            "next": "stage7_vote",
+            "point": 10
+          }
+        }
+      },
+      "stage7_vote": {
+        "story": "Parliament votes on impeachment.",
+        "image_url": "stage7_vote_image.jpg",
+        "options": {
+          "option1": {
+            "text": "Challenge the results if they don't go your way.",
+            "next": "stage8_revoting",
+            "point": -5
+          },
+          "option2": {
+            "text": "Accept the result.",
+            "next": "stage8_accepted",
+            "point": 5
+          }
+        }
+      },
+      "stage8_accepted": {
+        "story": "The results of the vote are accepted, and the President's fate is sealed.",
+        "image_url": "stage8_accepted_image.jpg",
+        "options": {
+          "option1": {
+            "text": "Move forward with the next steps.",
+            "next": "stage9_final_steps",
+            "point": 10
+          }
+        }
+      },
+      "stage9_final_steps": {
+        "story": "Parliament takes the final steps based on the vote.",
+        "image_url": "stage9_final_steps_image.jpg",
+        "options": {
+          "option1": {
+            "text": "Finalize the process.",
+            "next": "stage10_end",
+            "point": 10
+          }
+        }
+      },
+      "stage10_end": {
+        "story": "The process concludes with the President either impeached or censured.",
+        "image_url": "stage10_end_image.jpg",
+        "options": {
+          "option1": {
+            "text": "Review the outcome.",
+            "next": "end",
+            "point": 0
+          }
+        }
+      }
+    }
+  }
+  

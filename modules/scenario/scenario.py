@@ -2,13 +2,13 @@ import json
 import random
 import sqlite3
 from datetime import datetime
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, Blueprint
 
 # image till 5_1
 
-print("\n\nhttp://127.0.0.1:5000/scenario/\n\n")
+#print("\n\nhttp://127.0.0.1:5000/scenario/\n\n")
 
-app = Flask(__name__)
+app = Blueprint('scenario', __name__)
 
 class UserManager:
     def __init__(self, db_path='user_data.db'):
@@ -171,21 +171,21 @@ def index():
     global manager, cyoagame
     manager = UserManager()  
     cyoagame = CYOAGame(user_manager=manager)
-    return render_template('index.html')
+    return render_template('scenario_index.html')
 
 @app.route('/scenario/game/<scenario>', methods=['GET', 'POST'])
 def game(scenario):
     scenario = cyoagame.scenarios[cyoagame.current_scenario]
-    scenario['image_url'] = url_for('static', filename=f'images/{scenario["image_url"]}')
+    scenario['image_url'] = url_for('static', filename=f'scenario_images/{scenario["image_url"]}')
     if request.method == 'POST':
         choice = request.form.get('option')
         cyoagame.rounds += 1
         cyoagame.points += scenario['options'][choice]['point']
         cyoagame.current_scenario = scenario['options'][choice]['next']
         if cyoagame.current_scenario == 'end' or cyoagame.points >= 100 or cyoagame.points <= 0:
-            return redirect(url_for('end_game', points=cyoagame.points))
-        return redirect(url_for('game', scenario=cyoagame.current_scenario, points=cyoagame.points))
-    return render_template('game.html', scenario=scenario, points=request.args.get('points', 50))
+            return redirect(url_for('scenario.end_game', points=cyoagame.points))
+        return redirect(url_for('scenario.game', scenario=cyoagame.current_scenario, points=cyoagame.points))
+    return render_template('scenario_game.html', scenario=scenario, points=request.args.get('points', 50))
 
 
 @app.route('/scenario/end')
@@ -206,8 +206,8 @@ def end_game():
     if cyoagame.user_manager:
         cyoagame.user_manager.update_game_results(cyoagame.user_name, wins=(1 if cyoagame.win else 0), losses=(1 if not cyoagame.win else 0), current_score=cyoagame.points)
         cyoagame.update_achievements_and_badges()
-    return render_template('end.html', result=cyoagame.result)
+    return render_template('scenario_end.html', result=cyoagame.result)
 
 
-app.run(debug=False)
+#app.run(debug=False)
 

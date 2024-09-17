@@ -28,7 +28,7 @@ async function sendMessage() {
 
     const loader = showLoader();
 
-    const response = await fetch('/send_message', {
+    const response = await fetch('/chatbot/send_message', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
