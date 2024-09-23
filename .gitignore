@@ -2,5 +2,9 @@
 node_modules
 staticfiles
 .env
+<<<<<<< Updated upstream
 db.sqlite3
 modules\flashy\leaderboard.json
+=======
+.venv
+>>>>>>> Stashed changes
