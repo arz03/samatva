@@ -12,7 +12,7 @@
             
         </div>
         <div class="chat-input">
-            <input type="text" id="user-message" placeholder="Type your message here..." autocomplete="off">
+            <input type="text" id="user-message" placeholder="Type your message here..." autocomplete="off" onkeydown="if (event.keyCode === 13) { sendMessage(); }">
             <button onclick="sendMessage()">Send</button>
         </div>
     </div>
