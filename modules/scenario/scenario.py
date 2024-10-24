@@ -128,7 +128,7 @@ class UserManager:
 
 
 class CYOAGame:
-    def __init__(self, scenarios_file='scenario.json', user_manager=None):
+    def __init__(self, scenarios_file='modules/scenario/scenario.json', user_manager=None):
         self.user_name = "aditya"
         self.scenarios_file = scenarios_file
         self.scenarios = self.load_scenarios()

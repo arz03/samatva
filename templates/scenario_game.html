@@ -9,19 +9,21 @@
 <body>
     <div class="container">
         <div class="scenario-image">
-            <img src="{{ scenario['image_url'] }}" alt="Scenario Image">
-        </div>
-        <div class="message-box">
-            <h1>{{ scenario['story'] }}</h1>
-        </div>
-        <div class="options">
-            {% for key, option in scenario['options'].items() %}
-                <form method="POST" class="option-form">
-                    <input type="hidden" name="option" value="{{ key }}">
-                    <input type="hidden" name="points" value="{{ points }}">
-                    <button type="submit" class="option-btn">{{ option['text'] }}</button>
-                </form>
-            {% endfor %}
+            <div class="image-frame">
+                <img src="{{ scenario['image_url'] }}" alt="Scenario Image">
+            </div>
+            <div class="message-box">
+                <h1>{{ scenario['story'] }}</h1>
+            </div>
+            <div class="options">
+                {% for key, option in scenario['options'].items() %}
+                    <form method="POST" class="option-form">
+                        <input type="hidden" name="option" value="{{ key }}">
+                        <input type="hidden" name="points" value="{{ points }}">
+                        <button type="submit" class="option-btn">{{ option['text'] }}</button>
+                    </form>
+                {% endfor %}
+            </div>
         </div>
     </div>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>

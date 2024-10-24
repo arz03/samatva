@@ -80,6 +80,40 @@
           }
         }
       },
+      
+      "stage3_public_backlash": {
+      "story": "The decision to dismiss the allegations without investigation has caused widespread public backlash, with protests erupting across the nation.",
+      "image_url": "stage3_public_backlash_image.jpg",
+      "options": {
+          "option1": {
+            "text": "Reconsider the decision and open a formal investigation.",
+            "next": "stage2_investigate",
+            "point": 5
+          },
+          "option2": {
+            "text": "Stand by the original decision and control the public narrative.",
+            "next": "stage4_control_narrative",
+            "point": -5
+          }
+        }
+      },
+      "stage4_control_narrative": {
+          "story": "You decide to control the public narrative by using media and political allies to justify dismissing the allegations. Public opinion is split, but unrest continues.",
+          "image_url": "stage4_control_narrative_image.jpg",
+          "options": {
+              "option1": {
+                  "text": "Double down on your decision and use legal means to suppress protests.",
+                  "next": "stage5_public_support",
+                  "point": -5
+              },
+              "option2": {
+                  "text": "Reopen the investigation under public pressure.",
+                  "next": "stage2_investigate",
+                  "point": 5
+              }
+          }
+      },
+
       "stage4_supreme_court": {
         "story": "The Supreme Court holds a hearing regarding the President's actions.",
         "image_url": "stage4_supreme_court_image.jpg",
@@ -262,12 +296,271 @@
           }
         }
       },
-      "stage10_end": {
-        "story": "The process concludes with the President either impeached or censured.",
-        "image_url": "stage10_end_image.jpg",
+      "stage7_settlement": {
+        "story": "A settlement is proposed, which would avoid impeachment but require the President to accept certain conditions.",
+        "image_url": "stage7_settlement_image.jpg",
+        "options": {
+          "option1": {
+            "text": "Accept the settlement.",
+            "next": "stage8_settlement_accepted",
+            "point": 5
+          },
+          "option2": {
+            "text": "Reject the settlement and proceed with impeachment.",
+            "next": "stage8_proceed_impeachment",
+            "point": 10
+          }
+        }
+      },
+      "stage7_new_evidence": {
+        "story": "New evidence surfaces that could potentially alter the investigation's outcome.",
+        "image_url": "stage7_new_evidence_image.jpg",
+        "options": {
+          "option1": {
+            "text": "Use the new evidence in the case.",
+            "next": "stage8_new_evidence_hearing",
+            "point": 5
+          },
+          "option2": {
+            "text": "Hold back the evidence for now.",
+            "next": "stage8_evidence_withheld",
+            "point": -5
+          }
+        }
+      },
+      "stage8_revoting": {
+        "story": "A demand for revoting arises due to disputes over the legitimacy of the initial vote.",
+        "image_url": "stage8_revoting_image.jpg",
+        "options": {
+          "option1": {
+            "text": "Proceed with a revote.",
+            "next": "stage9_revoting_outcome",
+            "point": 5
+          },
+          "option2": {
+            "text": "Refuse the revote and accept the original outcome.",
+            "next": "stage9_no_revoting",
+            "point": -5
+          }
+        }
+      },
+      "stage8_settlement_accepted": {
+        "story": "The settlement is accepted, and the impeachment proceedings are halted. However, public opinion remains divided.",
+        "image_url": "stage8_settlement_accepted_image.jpg",
+        "options": {
+          "option1": {
+            "text": "Finalize the settlement.",
+            "next": "stage9_final_steps_settlement",
+            "point": 5
+          },
+          "option2": {
+            "text": "Rethink the settlement and continue impeachment.",
+            "next": "stage9_impeachment_renewed",
+            "point": 10
+          }
+        }
+      },
+      "stage8_proceed_impeachment": {
+        "story": "The settlement is rejected, and the impeachment process moves forward.",
+        "image_url": "stage8_proceed_impeachment_image.jpg",
+        "options": {
+          "option1": {
+            "text": "Push for an immediate impeachment vote.",
+            "next": "stage9_vote",
+            "point": 10
+          },
+          "option2": {
+            "text": "Delay the vote to gather more support.",
+            "next": "stage9_delay_vote",
+            "point": 5
+          }
+        }
+      },
+      "stage8_new_evidence_hearing": {
+        "story": "The new evidence is presented, strengthening the case against the President.",
+        "image_url": "stage8_new_evidence_hearing_image.jpg",
+        "options": {
+          "option1": {
+            "text": "Proceed with impeachment based on new evidence.",
+            "next": "stage9_vote",
+            "point": 10
+          },
+          "option2": {
+            "text": "Negotiate with the ruling party to avoid a vote.",
+            "next": "stage9_negotiation",
+            "point": 5
+          }
+        }
+      },
+      "stage8_evidence_withheld": {
+        "story": "You decide to withhold the new evidence, leading to questions about the investigation's integrity.",
+        "image_url": "stage8_evidence_withheld_image.jpg",
+        "options": {
+          "option1": {
+            "text": "Reveal the evidence and restore trust.",
+            "next": "stage9_evidence_revealed",
+            "point": 5
+          },
+          "option2": {
+            "text": "Continue without revealing the evidence.",
+            "next": "stage9_vote",
+            "point": -5
+          }
+        }
+      },
+      "stage9_revoting_outcome": {
+        "story": "The revote results in a narrow decision, with the President's fate hanging in the balance.",
+        "image_url": "stage9_revoting_outcome_image.jpg",
+        "options": {
+          "option1": {
+            "text": "Proceed based on the revote outcome.",
+            "next": "stage10_end",
+            "point": 10
+          },
+          "option2": {
+            "text": "Challenge the revote again.",
+            "next": "stage10_end",
+            "point": 5
+          }
+        }
+      },
+      "stage9_no_revoting": {
+        "story": "The decision to refuse a revote creates public unrest, but the impeachment continues.",
+        "image_url": "stage9_no_revoting_image.jpg",
+        "options": {
+          "option1": {
+            "text": "Proceed with the original vote outcome.",
+            "next": "stage10_end",
+            "point": 10
+          }
+        }
+      },
+      "stage9_final_steps_settlement": {
+        "story": "The settlement terms are finalized, and the case is closed.",
+        "image_url": "stage9_final_steps_settlement_image.jpg",
         "options": {
           "option1": {
             "text": "Review the outcome.",
+            "next": "stage10_end",
+            "point": 0
+          }
+        }
+      },
+      "stage9_impeachment_renewed": {
+        "story": "Despite initial hesitation, the impeachment process is renewed.",
+        "image_url": "stage9_impeachment_renewed_image.jpg",
+        "options": {
+          "option1": {
+            "text": "Proceed to the impeachment vote.",
+            "next": "stage10_end",
+            "point": 10
+          }
+        }
+      },
+      "stage9_delay_vote": {
+        "story": "The vote is delayed, giving more time to gather support or reconsider.",
+        "image_url": "stage9_delay_vote_image.jpg",
+        "options": {
+          "option1": {
+            "text": "Proceed with the vote.",
+            "next": "stage10_end",
+            "point": 10
+          }
+        }
+      },
+      "stage9_evidence_revealed": {
+        "story": "The withheld evidence is finally revealed, swaying public opinion.",
+        "image_url": "stage9_evidence_revealed_image.jpg",
+        "options": {
+          "option1": {
+            "text": "Move forward with the impeachment vote.",
+            "next": "stage10_end",
+            "point": 10
+          }
+        }
+      },
+      "stage5_compromise": {
+          "story": "A compromise is suggested that would involve the President acknowledging the issues but avoiding any formal censure or impeachment. The political scene is tense, with both sides trying to secure support.",
+          "image_url": "stage5_compromise_image.jpg",
+          "options": {
+              "option1": {
+                  "text": "Accept the compromise to avoid further conflict.",
+                  "next": "stage6_censure",
+                  "point": 5
+              },
+              "option2": {
+                  "text": "Reject the compromise and proceed with impeachment.",
+                  "next": "stage6_impeachment",
+                  "point": 10
+              }
+          }
+      },
+      "stage7_negotiations": {
+          "story": "Intense negotiations take place behind closed doors, as both sides attempt to reach a deal before an impeachment vote.",
+          "image_url": "stage7_negotiations_image.jpg",
+          "options": {
+              "option1": {
+                  "text": "Continue with negotiations to delay the vote.",
+                  "next": "stage8_proceed_impeachment",
+                  "point": 5
+              },
+              "option2": {
+                  "text": "End negotiations and push for the vote.",
+                  "next": "stage9_vote",
+                  "point": 10
+              }
+          }
+      },
+      "stage7_censure_passed": {
+          "story": "The vote for censure has passed. While the President avoids impeachment, their reputation is severely damaged, and public trust in the administration is shaken.",
+          "image_url": "stage7_censure_passed_image.jpg",
+          "options": {
+              "option1": {
+                  "text": "Move forward with the aftermath of the censure.",
+                  "next": "stage9_final_steps",
+                  "point": 5
+              }
+          }
+      },
+      "stage9_vote": {
+          "story": "The vote on impeachment is scheduled, and both sides prepare for the crucial decision that will determine the President's fate.",
+          "image_url": "stage9_vote_image.jpg",
+          "options": {
+              "option1": {
+                  "text": "Push for the vote immediately.",
+                  "next": "stage10_end",
+                  "point": 10
+              },
+              "option2": {
+                  "text": "Delay the vote to gather more support.",
+                  "next": "stage9_negotiation",
+                  "point": 5
+              }
+          }
+      },
+      "stage9_negotiation": {
+          "story": "As the vote approaches, last-minute negotiations attempt to sway undecided members of Parliament.",
+          "image_url": "stage9_negotiation_image.jpg",
+          "options": {
+              "option1": {
+                  "text": "Proceed with the vote regardless of the negotiations.",
+                  "next": "stage10_end",
+                  "point": 10
+              },
+              "option2": {
+                  "text": "Delay the vote to continue negotiating.",
+                  "next": "stage9_delay_vote",
+                  "point": 5
+              }
+          }
+      },
+
+      "stage10_end": {
+        "story": "The process concludes, either with the President being impeached, censured, or a settlement being reached.",
+        "image_url": "stage10_end_image.jpg",
+        "options": {
+          "option1": {
+            "text": "The case is closed.",
             "next": "end",
             "point": 0
           }
